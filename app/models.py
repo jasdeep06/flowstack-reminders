@@ -8,6 +8,7 @@ class ReminderCreate(BaseModel):
     title: str
     due_at: datetime
     channel: Optional[str] = "email"
+    priority: Optional[str] = None
 
     @field_validator("title")
     @classmethod
@@ -23,3 +24,4 @@ class Reminder(BaseModel):
     due_at: datetime
     channel: str
     status: str
+    priority: Optional[str] = None

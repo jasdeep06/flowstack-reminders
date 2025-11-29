@@ -14,6 +14,7 @@ def test_create_reminder_success():
         "title": "Demo reminder",
         "due_at": future_time,
         "channel": "email",
+        "priority": "urgent",
     }
 
     response = client.post("/reminders/", json=payload)
@@ -25,6 +26,7 @@ def test_create_reminder_success():
     assert data["channel"] == "email"
     assert data["status"] == "scheduled"
     assert "id" in data
+    assert data["priority"] == "urgent"
 
 
 def test_create_reminder_past_due_at():

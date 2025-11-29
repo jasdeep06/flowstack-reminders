@@ -20,6 +20,7 @@ class ReminderRepository:
             due_at=payload.due_at,
             channel=payload.channel or "email",
             status="scheduled",
+            priority=payload.priority,
         )
         self._data[self._next_id] = reminder
         self._next_id += 1
